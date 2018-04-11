@@ -35,15 +35,15 @@ public class Cart extends Item {
 		System.out.println("Enter 1-5 to add the items in menu to cart or enter 0 to checkout");
 		System.out.print("> ");
 		Integer response = input.nextInt();
-		System.out.println("Enter quantity");
-		System.out.print("> ");
-		
-		Integer quantity = input.nextInt();
 				
 		allItems = items.getItems();
 		cartItems = this.getCartItems();
 		String cartItem = allItems.get(response);
 		if(response != 0) {
+			System.out.println("Enter quantity");
+			System.out.print("> ");
+			Integer quantity = input.nextInt();
+			
 			if(cartItems.containsKey(cartItem)) {
 				if(quantity == 0) {
 					int qty = cartItems.get(cartItem) + 1;
