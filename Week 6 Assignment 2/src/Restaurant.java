@@ -1,4 +1,3 @@
-import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -11,7 +10,15 @@ public class Restaurant {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		//Instantiating Item class
 		Item items = new Item();
+		
+		//Instantiating Order class
+		Order order = new Order();
+		
+		//Instantiating Cart class
+		Cart cart = new Cart();
+		
 		int menuKey = 1, count = 0;
 		char response =' ';
 		
@@ -23,35 +30,35 @@ public class Restaurant {
 		items.addItem(4, "Soda");
 		items.addItem(5, "Fries");
 		
-		items.display(
+		order.display(
 				"Simple Restaurant Ordering Menu & Cart\n"
 				+ "**************************************");
 		
 		while(menuKey != 0) {
 			if(count > 0) {
-				items.display("Do you want to add more items to cart? y or n");
+				order.display("Do you want to add more items to cart? y or n");
 				System.out.print("> ");
 				response = read.nextLine().charAt(0);
 				
 				if(response == 'y' || response == 'Y') {
 					//continue;
 				}else if(response == 'n' || response == 'N') {
-					items.display("");
+					order.display("");
 					break;
 				}else {
 					continue;
 				}
-				items.display("");
+				order.display("");
 			}
 			
-			items.displayMenu(items.getItems());
-			menuKey = items.cart();
-			items.display("");
+			order.displayMenu(items.getItems());
+			menuKey = cart.cart();
+			order.display("");
 			
 			count++;
 		}
 		
-		items.viewOrder();
+		order.viewOrder();
 	}
 
 }
